@@ -1,0 +1,183 @@
+:root {
+  --header-bar-height: 40px;
+}
+
+html, body{
+     margin: 0;
+     padding: 0;
+     background-color: rgb(255, 255, 255);
+}
+
+header{
+     background-color: rgba(255, 255, 255, 1);
+     display: flex;
+     justify-content: center;
+     height: 100vh;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     z-index: 1000;
+     transform-origin: top center;
+     transition: height 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+.CenterText{
+     text-align: center;
+}
+
+header.shrunk{
+     height: 60px;
+     background-color: rgba(255, 255, 255, 0.9);
+}
+
+header.hiddenHeader{
+     transform: translateY(-100%);
+     opacity: 0;
+     pointer-events:none;
+}
+
+.hamburger{
+     position: absolute;
+     top: 35%;
+     right: 20px;
+     cursor: pointer;
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+}
+
+.bar{
+     width: 25px;
+     height: 3px;
+     background-color: black;
+     transition: background 0.3s;
+}
+
+#bar2{
+     width: 30px;
+     height: 3px;
+     background-color: black;
+     transition: background 0.3s;
+     right: 50px;
+}
+
+.dropdown-menu{
+     position: absolute;
+     top: 100%;
+     right: 1.5rem;
+     background-color: #fff;
+     width: 200px;
+     height: 250px;
+     list-style: none;
+     display: none;
+     overflow: hidden;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+     padding-top: 40px;
+}
+
+.dropdown-menu .lines{
+     width: 150px;
+     height: 2px;
+     background-color: black;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu li a{
+     display: inline-block;
+     line-height: 1;
+     padding: 8.5% 1rem;
+     text-decoration: none;
+     color: black;
+     font-family:'Times New Roman', Times, serif;
+     font-size: 16px;
+     width: 120px;
+     transition: background-color 0.6s ease;
+}
+
+.dropdown-menu li a:hover{
+     background-color: rgba(0.5,0.5,0.5,0.6);
+     box-shadow: 0 0 8px 4px rgba(0,0,0,0.2);
+}
+
+.hamburger:hover .dropdown-menu, .dropdown-menu:hover .dropdown-menu, .hamburger:checked .dropdown-menu {
+     display: block;
+}
+
+.dropdown-menu.open {
+     display: block;
+}
+
+.logo{
+     transform-origin: center center;
+     transition: transform 0.5s ease;
+}
+
+.logo.shrunk{
+     width: 150%;
+     height: auto;
+     transition: height 0.5s ease;
+}
+
+.top-half {
+  height: 120vh;           
+  background: #ffffff;    
+}
+@font-face {
+  font-family: 'BebasNeue-Regular';
+  src: url('BebasNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+     font-family: 'Inter';
+     src: url('Inter.ttf') format('truetype');
+     font-weight: 100 900;
+     font-style: normal;
+}
+
+.top-half p{
+     position: relative;
+     color: rgb(245, 138, 156);
+     font-size: 80px;
+     font-family: 'BebasNeue-Regular', sans-serif;
+     text-align: center;
+     top: 30%;
+     transform: translateY(100%);
+     transition: opacity 0.9s ease, transform 0.9s ease;
+     opacity: 0;
+     pointer-events: none;
+}
+
+.top-half p.visible {
+     opacity: 1;
+     transform: translateY(0);
+     pointer-events: auto;
+}
+
+
+.hyciine-title {
+  color: #000;
+  font-size: 40vh;
+  font-family: 'Great Vibes', cursive;
+  position: absolute;
+  bottom: -47%;
+  left: 20%;
+  transform: translateY(50%);
+  transition: opacity 0.8s ease, transform 0.8s ease, color 15s ease;
+  opacity: 0;
+  pointer-events: none;
+  animation: flashEffect 15s infinite;
+}
+
+@keyframes flashEffect{
+     0% { color: rgb(0, 0, 0); }
+     50%{ color: rgb(245, 138, 156); }
+     100%{ color: rgb(0, 0, 0); }
+}
+
+.hyciine-title.visible{
+     opacity: 1;
+     transform: translateY(0);
+     pointer-events: auto;
+}
